@@ -55,16 +55,66 @@ QUnit.module('Article Class', function () {
 
     assert.equal(result, true);
 
-
-
   });
   QUnit.test('Article.loadAll should set an array of Article instances', function (assert) {
-    //TODO: write a test for article loadAll
+    //DONE TODO: write a test for article loadAll
     //remember to reset anything that changed about your global
     //environment at the end of the test!
+    var articles = [
+      {
+        title: 'Transmitting Open-source Arrays',
+        category: 'firewall',
+        author: 'Dr. Tressie Kuphal',
+        authorUrl: 'http://http://corrine.net',
+        publishedOn: '2014-01-22',
+        body: '## The RSS sensor is down'
+      },
+      {
+        title: 'Transmitting Open-source Arrays',
+        category: 'firewall',
+        author: 'Dr. Tressie Kuphal',
+        authorUrl: 'http://http://corrine.net',
+        publishedOn: '2015-01-22',
+        body: '## The RSS sensor is down'
+      }];
+    Article.loadAll(articles);
+    if (Article.all[0].publishedOn === articles[0].publishedOn) {
+      var result = true;
+    }
+    assert.equal(result, true);
   });
+  //reset global after test //ASK AARON OR TOM
+  Article.all = [];
+  
   QUnit.test('Article.allAuthors should get unique author names', function (assert) {
-    //TODO: write a test for Article.allAuthors
+    //DONE TODO: write a test for Article.allAuthors
+    var testAuthorArray = [
+      {
+        author: 'Grayson',
+        publishedOn: '2015-01-22'
+      },
+      {
+        author: 'Keeley',
+        publishedOn: '2012-01-22'
+      },
+      { author: 'Keeley',
+        publishedOn: '2017-01-22'
+      },
+      { author: 'Morgan',
+        publishedOn: '2010-01-22'
+      },
+      { author: 'Grayson',
+        publishedOn: '2013-01-22'
+      }
+    ];
+    Article.loadAll(testAuthorArray);
+    Article.allAuthors();
+
+    if (!Article.allAuthors[3]) {
+      var result = true;
+    }
+    
+    assert.equal(result, true);
   });
   //STRETCH: write a test for Article.numWordsAll
   //STRETCH: write a test for Article.fetchAll

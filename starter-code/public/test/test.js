@@ -17,7 +17,7 @@ QUnit.module('Article Class', function() {
     //remember to reset anything that changed about your global
     //environment at the end of the test!
   });
-  QUnit.test('Article.allAuthors should get a unique name of authors', function(assert) {
+  QUnit.test('Article.allAuthors should get unique author names', function(assert) {
     //TODO: write a test for Article.allAuthors
   });
   //STRETCH: write a test for Article.numWordsAll

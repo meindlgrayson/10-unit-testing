@@ -108,12 +108,11 @@ QUnit.module('Article Class', function () {
       }
     ];
     Article.loadAll(testAuthorArray);
-    Article.allAuthors();
+    var holdingArray = Article.allAuthors();
 
-    if (!Article.allAuthors[3]) {
+    if ((holdingArray[0] === 'Grayson' || holdingArray[0] === 'Keeley' || holdingArray[0] === 'Morgan') && (!holdingArray.length < 3)) {
       var result = true;
     }
-    
     assert.equal(result, true);
   });
   //STRETCH: write a test for Article.numWordsAll
